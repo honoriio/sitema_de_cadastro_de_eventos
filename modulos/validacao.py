@@ -47,7 +47,7 @@ def validar_data(data):
             print('A data informada é inválida. Por favor, insira um valor válido.')
     else:
         print('A data informada contém caracteres não permitidos. Por favor, insira apenas números e a barra de separação.')
-    return F
+    return False
 
 
 
@@ -60,3 +60,17 @@ def validar_email(email):
         return True
     else:
         return False
+    
+    
+# Validação para verificar se o valor inserido e inteiro  de forma correta
+def leiaint(msg):
+    while True:
+        try:
+            inteiro = int(input(msg))
+        except (ValueError, TypeError):
+            print('\033[31mERRO: Por favor, digite um numero inteiro valido.\033[0m')
+        except KeyboardInterrupt:
+            print('O usuário decidiu não informar mais o número.')
+            return None
+        else:
+            return inteiro

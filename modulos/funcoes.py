@@ -39,6 +39,19 @@ def cadastro():
             if validar_email(email):
                 break
             else: 
-                print('P e-mail informado não e valido.')
+                print('O e-mail informado não e valido.')
         except ValueError:
             print('Erro ao validar e-mail, por favor informe um e-mail valido.')
+    while True:
+        try:
+            print('Qual o seu sexo?')
+            print('[1]- Masculino')
+            print('[2]- Feminino')
+            sexo = leiaint('Opção: ')
+            if sexo == 1 or sexo == 2:
+                break
+            else:
+                print('A opção escolhida esta incorreta, insira uma opção valida.')
+        except ValueError:
+            print('Erro ao validar o campo sexo, por favor informe uma opção valida.')
+        
