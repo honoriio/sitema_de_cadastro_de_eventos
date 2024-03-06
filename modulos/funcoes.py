@@ -54,4 +54,13 @@ def cadastro():
                 print('A opção escolhida esta incorreta, insira uma opção valida.')
         except ValueError:
             print('Erro ao validar o campo sexo, por favor informe uma opção valida.')
-        
+    while True:
+        try:
+            cep = input('Informe o CEP de 8 digitos: ')
+            if validar_cep(cep):
+                break
+            else:
+                print('O CEP informado e invalido.')
+        except ValueError:
+            print('Erro ao validar o CEP, Por favor verifique os dados informados e digite novamente.')
+    return cep

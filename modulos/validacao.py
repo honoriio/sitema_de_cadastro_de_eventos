@@ -74,3 +74,18 @@ def leiaint(msg):
             return None
         else:
             return inteiro
+
+
+# Função criada para validar cep e garantir que o usuario informe a quantia correta de digitos.
+def validar_cep(cep):
+    caracteres_permitidos = set("1234567890")
+    if all(char in caracteres_permitidos for char in cep):
+        tam_cep = 8
+        tam_cep_usuario = len(cep)
+        if tam_cep_usuario == tam_cep:
+            return True
+        else:
+            print('A CEP informado é inválido. Por favor, insira um valor válido.')
+    else:
+        print('A CEP informada contém caracteres não permitidos. Por favor, insira apenas números, sem barra ou ponto de separação.')
+    return False
