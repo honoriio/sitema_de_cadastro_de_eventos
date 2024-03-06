@@ -76,7 +76,7 @@ def leiaint(msg):
             return inteiro
 
 
-# Função criada para validar cep e garantir que o usuario informe a quantia correta de digitos.
+# Função criada para validar cep e garantir que o usuario informe a quantia correta de digitos, que nesse caso são 8 digitos numericos.
 def validar_cep(cep):
     caracteres_permitidos = set("1234567890")
     if all(char in caracteres_permitidos for char in cep):

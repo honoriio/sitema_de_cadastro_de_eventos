@@ -16,7 +16,6 @@ class pessoa:
 def cadastro():
     # Loop criado para a entrada do campo nome, aqui vamos verificar se, o usúario inseriu apenas letras e os acentos validos
     # os caracteres permitidos estão todos descriminados na função validar_nome na pasta modulos/
-
     while True:
         try:
             nome = input('Informe o nome: ')
@@ -26,6 +25,8 @@ def cadastro():
                 print('O Nome não pode estar em branco, Por favor, informe um nome válido.')
         except ValueError:
             print('Erro ao processar o nome, Certifique-se de inserir um valor válido.')
+
+    # Loop criado para a entrada e verficação dos dados inseridos pelo usuario no campo de data de nascimento
     while True:
         try:
             nascimento = input('Informe a data de nascimento: ')
@@ -33,6 +34,8 @@ def cadastro():
                 break
         except ValueError:
             print('Erro ao processar a data de nascimento, Certifique-se de inserir um valor válido.')
+
+    # Loop criado para a entrada do campo email e para a validação dos dados inseridos pelo usuario
     while True:
         try:
             email = input('Informe seu melhor e-mail: ')
@@ -42,6 +45,8 @@ def cadastro():
                 print('O e-mail informado não e valido.')
         except ValueError:
             print('Erro ao validar e-mail, por favor informe um e-mail valido.')
+    
+    # Loop criado para a entrad do campo sexo e para a validação do mesmo.
     while True:
         try:
             print('Qual o seu sexo?')
@@ -54,6 +59,8 @@ def cadastro():
                 print('A opção escolhida esta incorreta, insira uma opção valida.')
         except ValueError:
             print('Erro ao validar o campo sexo, por favor informe uma opção valida.')
+    
+    # Loop criado para a entrada do campo cep e para a validação dos dados inseridos pelo usuario.
     while True:
         try:
             cep = input('Informe o CEP de 8 digitos: ')
