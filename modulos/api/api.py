@@ -21,4 +21,3 @@ def imprimir_informacoes_cep(cep):
             print(f"{key.capitalize()}: {value}")
     else:
         print("CEP não encontrado.")
-    

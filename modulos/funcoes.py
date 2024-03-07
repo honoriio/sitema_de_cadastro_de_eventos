@@ -14,60 +14,67 @@ class pessoa:
 
 
 def cadastro():
-    # Loop criado para a entrada do campo nome, aqui vamos verificar se, o usúario inseriu apenas letras e os acentos validos
-    # os caracteres permitidos estão todos descriminados na função validar_nome na pasta modulos/
+    dados = {}  # Dicionário para armazenar os dados do cadastro, Para usarmos posteriormente no banco de dados.
+
     while True:
         try:
             nome = input('Informe o nome: ')
             if validar_nome(nome) and nome.strip() != '':
+                dados['nome'] = nome
                 break
             else:
                 print('O Nome não pode estar em branco, Por favor, informe um nome válido.')
         except ValueError:
             print('Erro ao processar o nome, Certifique-se de inserir um valor válido.')
 
-    # Loop criado para a entrada e verficação dos dados inseridos pelo usuario no campo de data de nascimento
     while True:
         try:
-            nascimento = input('Informe a data de nascimento: ')
+            nascimento = input('Informe a data de nascimento (DD/MM/AAAA): ')
             if validar_data(nascimento):
+                dados['data_nascimento'] = nascimento
                 break
+            else:
+                print('Data de nascimento inválida. Por favor, insira no formato correto (DD/MM/AAAA).')
         except ValueError:
             print('Erro ao processar a data de nascimento, Certifique-se de inserir um valor válido.')
 
-    # Loop criado para a entrada do campo email e para a validação dos dados inseridos pelo usuario
     while True:
         try:
             email = input('Informe seu melhor e-mail: ')
             if validar_email(email):
+                dados['email'] = email
                 break
             else: 
-                print('O e-mail informado não e valido.')
+                print('O e-mail informado não é válido.')
         except ValueError:
-            print('Erro ao validar e-mail, por favor informe um e-mail valido.')
+            print('Erro ao validar e-mail, por favor informe um e-mail válido.')
     
-    # Loop criado para a entrad do campo sexo e para a validação do mesmo.
     while True:
         try:
             print('Qual o seu sexo?')
             print('[1]- Masculino')
             print('[2]- Feminino')
             sexo = leiaint('Opção: ')
-            if sexo == 1 or sexo == 2:
+            if sexo == 1:
+                dados['sexo'] = 'Masculino'
+                break
+            elif sexo == 2:
+                dados['sexo'] = 'Feminino'
                 break
             else:
-                print('A opção escolhida esta incorreta, insira uma opção valida.')
+                print('Opção inválida. Por favor, insira 1 para Masculino ou 2 para Feminino.')
         except ValueError:
-            print('Erro ao validar o campo sexo, por favor informe uma opção valida.')
+            print('Erro ao validar o campo sexo, por favor informe uma opção válida.')
     
-    # Loop criado para a entrada do campo cep e para a validação dos dados inseridos pelo usuario.
     while True:
         try:
-            cep = input('Informe o CEP de 8 digitos: ')
+            cep = input('Informe o CEP de 8 dígitos: ')
             if validar_cep(cep):
+                dados['cep'] = cep
                 break
             else:
-                print('O CEP informado e invalido.')
+                print('O CEP informado é inválido. Por favor, insira um CEP válido.')
         except ValueError:
             print('Erro ao validar o CEP, Por favor verifique os dados informados e digite novamente.')
-    return cep
+    
+    return cep, dados
