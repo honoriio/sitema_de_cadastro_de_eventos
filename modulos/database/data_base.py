@@ -2,6 +2,7 @@
 import sqlite3
 from modulos.api.api import consulta_cep
 from modulos.funcoes import cadastro
+from modulos.api.api import imprimir_informacoes_cep
 
 class BancoDeDados:
     # Função para conectar ao banco de dados
@@ -23,8 +24,8 @@ class BancoDeDados:
                 email TEXT,
                 sexo TEXT,
                 cep TEXT,
+                localidade TEXT,
                 uf TEXT,
-                logradouro TEXT,
                 complemento TEXT
             )
         ''')
@@ -34,9 +35,9 @@ class BancoDeDados:
     def inserir_dados(self, dados):
         cursor = self.conn.cursor()
         cursor.execute('''
-            INSERT INTO pessoas (nome, data_nascimento, email, sexo, cep, uf, logradouro, complemento)
+            INSERT INTO pessoas (nome, data_nascimento, email, sexo, cep, localidade, uf, complemento)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (dados['nome'], dados['data_nascimento'], dados['email'], dados['sexo'], dados['cep'], dados['uf'], dados['logradouro'], dados['complemento']))
+        ''', (dados['nome'], dados['data_nascimento'], dados['email'], dados['sexo'], dados['cep'], dados['localidade'], dados['uf'], dados['complemento']))
         self.conn.commit()
 
     # Função para processar o cadastro
@@ -61,9 +62,14 @@ class BancoDeDados:
 
             # Desconecta do banco de dados
             self.desconectar()
+
+            # Imprime os dados obtidos com o cep
+            imprimir_informacoes_cep(cep)
         else:
             print("CEP não encontrado.")
 
 # Instanciando a classe BancoDeDados e chamando o método processar_cadastro
 bd = BancoDeDados()
 bd.processar_cadastro()
+
+
