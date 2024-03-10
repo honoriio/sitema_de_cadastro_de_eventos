@@ -1,8 +1,5 @@
 # esté e um local especifico para crir as funcoes de validaçoes
 
-# Importando os modulos necessarios
-
-
 # Importamos a biblioteca unidecode, que permite a remoção de acentos em strings,
 # sendo útil para a função de validação de nomes fornecidos pelos usuários.
 import unidecode
