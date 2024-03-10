@@ -89,3 +89,18 @@ def validar_cep(cep):
     else:
         print('A CEP informada contém caracteres não permitidos. Por favor, insira apenas números, sem barra ou ponto de separação.')
     return False
+
+
+# Função criada para a validaçao do número de telefone, o mesmo verifica a quantia de numeros ddd e sulfixo do pais. 
+def validar_telefone(celular):
+    caracteres_permitidos = set("1234567890")
+    if all(char in caracteres_permitidos for char in celular):
+        tam_celular = 11
+        tam_celular_usuario = len(celular)
+        if tam_celular_usuario == tam_celular:
+            return True
+        else:
+            print('O número informado é inválido. Por favor, insira um número válido.')
+    else:
+        print('O número informada contém caracteres não permitidos. Por favor, insira apenas números, sem barra, aspas ou ponto de separação.')
+    return False

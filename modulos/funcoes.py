@@ -37,7 +37,16 @@ def cadastro():
                 print('Data de nascimento inválida. Por favor, insira no formato correto (DD/MM/AAAA).')
         except ValueError:
             print('Erro ao processar a data de nascimento, Certifique-se de inserir um valor válido.')
-
+    while True:
+        try:
+            celular = input('Informe um numero para contato: ')
+            if validar_telefone(celular):
+                dados['numero_telefone'] = celular
+                break
+            else:
+                print('O número informado e inválido, por favor verifique o número e tente novamente.')
+        except ValueError:
+            print('Erro ao validar o número de telefone informado, por favor verifique o número e tente novamente.')
     while True:
         try:
             email = input('Informe seu melhor e-mail: ')
