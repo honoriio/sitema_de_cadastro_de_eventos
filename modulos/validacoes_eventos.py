@@ -12,6 +12,28 @@ def validar_titulo(titulo):
     return set(titulo_sem_acentos).issubset(caracteres_permitidos)
 
 
+def validar_estado(estado):
+    titulo_sem_acentos = unidecode.unidecode(estado)
+
+    # Não esquecer de deixar o espaço para que não tenha problema com a validação do nome completo
+    caracteres_permitidos = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ^~´áéíóúÁÉÍÓÚ ")
+    return set(titulo_sem_acentos).issubset(caracteres_permitidos)
+
+
+# Função criada para validar cep e garantir que o usuario informe a quantia correta de digitos, que nesse caso são 8 digitos numericos.
+def validar_cep(cep):
+    caracteres_permitidos = set("1234567890")
+    if all(char in caracteres_permitidos for char in cep):
+        tam_cep = 8
+        tam_cep_usuario = len(cep)
+        if tam_cep_usuario == tam_cep:
+            return True
+        else:
+            print('A CEP informado é inválido. Por favor, insira um valor válido.')
+    else:
+        print('A CEP informada contém caracteres não permitidos. Por favor, insira apenas números, sem barra ou ponto de separação.')
+    return False
+
 # Validação para verificar se o valor inserido e inteiro  de forma correta
 def leiaint(msg):
     while True:
@@ -41,6 +63,21 @@ def validar_data(data):
     return False
 
 
+# Função criada para a validação da hora para que o usuario não informe um horario incorreto. 
+def validar_hora(hora_evento):
+    caracteres_permitidos = set("1234567890:")
+    if all(char in caracteres_permitidos for char in hora_evento):
+        tam_hora = 5
+        tam_hora_evento = len(hora_evento)
+        if tam_hora_evento == tam_hora:
+            return True
+        else:
+            print('A hora informada e invalida. Por favor, insira um horario vãlido.')
+    else:
+        print('A hora informada contem caracteres não permitidos. Por favor, insíra apenas o formato permitido (HH:MM)')
+    return False
+
+
 # Função criada para a validaçao do número de telefone, o mesmo verifica a quantia de numeros ddd e sulfixo do pais. 
 def validar_telefone(celular):
     caracteres_permitidos = set("1234567890")
@@ -54,3 +91,5 @@ def validar_telefone(celular):
     else:
         print('O número informada contém caracteres não permitidos. Por favor, insira apenas números, sem barra, aspas ou ponto de separação.')
     return False
+
+
