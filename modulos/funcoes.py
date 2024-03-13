@@ -1,4 +1,4 @@
-# Modulos criado para agurapar as funções criadas para o cadastro de pessoas
+# Modulos criado para agrupar as funções criadas para o cadastro de pessoas
 
 
 # Area destinada para importação dos moculos necessarios
@@ -6,13 +6,15 @@
 from modulos.validacao import *
 
 class pessoa:
-    def __init__(self,primeiro_nome, sobrenome, nascimento, sexo, endereco, cep):
-        self.primeiro_nome = primeiro_nome
-        self.sobrenome = sobrenome
+    def __init__(self,nome, sobrenome, nascimento, celular, email, sexo, endereco, cep):
+        self.nome = nome
         self. nascimento = nascimento
+        self.celular = celular
+        self.email = email
         self.sexo = sexo
         self.endereco = endereco
         self.cep = cep
+    
 
 
 
@@ -44,7 +46,7 @@ def cadastro():
         try:
             celular = input('Informe um numero para contato: ')
             if validar_telefone(celular):
-                dados['numero_telefone'] = celular
+                dados['celular'] = celular
                 break
             else:
                 print('O número informado e inválido, por favor verifique o número e tente novamente.')

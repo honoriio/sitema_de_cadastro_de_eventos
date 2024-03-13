@@ -21,6 +21,7 @@ class BancoDeDados:
                 id INTEGER PRIMARY KEY,
                 nome TEXT,
                 data_nascimento TEXT,
+                celular TEXT,
                 email TEXT,
                 sexo TEXT,
                 cep TEXT,
@@ -35,9 +36,9 @@ class BancoDeDados:
     def inserir_dados(self, dados):
         cursor = self.conn.cursor()
         cursor.execute('''
-            INSERT INTO pessoas (nome, data_nascimento, email, sexo, cep, localidade, uf, complemento)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (dados['nome'], dados['data_nascimento'], dados['email'], dados['sexo'], dados['cep'], dados['localidade'], dados['uf'], dados['complemento']))
+            INSERT INTO pessoas (nome, data_nascimento, celular, email, sexo, cep, localidade, uf, complemento)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (dados['nome'], dados['data_nascimento'], dados['celular'], dados['email'], dados['sexo'], dados['cep'], dados['localidade'], dados['uf'], dados['complemento']))
         self.conn.commit()
 
     # Função para processar o cadastro
@@ -49,7 +50,7 @@ class BancoDeDados:
         cep_info = consulta_cep(cep)
 
         if cep_info:
-            dados.update(cep_info)  # Adiciona os dados do CEP ao dicionário de dados de cadastro
+            dados = {**dados, **cep_info}  # Mescla os dados do CEP com os dados do cadastro
 
             # Conecta ao banco de dados
             self.conectar('cadastro.db')
