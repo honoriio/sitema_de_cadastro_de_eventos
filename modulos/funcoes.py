@@ -90,3 +90,11 @@ def cadastro():
             print('Erro ao validar o CEP, Por favor verifique os dados informados e digite novamente.')
     
     return cep, dados
+
+
+
+
+# Campo de mudança
+# Usa a classe pessoa para criar um objeto cada vez que for adicionado um novo usuario, cada usuario novo tera um id unico, para a melhor identificação de cada usuario. 
+
+# deverei mudar a logica para o cadastro de cada usuario, para que essas novas adições sejam feitas.

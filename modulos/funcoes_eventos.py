@@ -149,3 +149,10 @@ def cadastro_eventos():
         except ValueError:
             print('Erro ao validar e-mail, por favor informe um e-mail válido.')
     return dados_evento
+
+
+# Campos de mudança
+
+# Preciso criar o banco de dados para os eventos, talvez farei igual a entrada do bando de dados do cadastro de usuarios
+
+# Tambem preciso criar a inscrição dos usuarios para o evento, sendo possivel mostrar os usuarios cadastrados no evento, e talvez gerar um ID de participação para cada usuario.

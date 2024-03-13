@@ -73,3 +73,14 @@ bd = BancoDeDados()
 bd.processar_cadastro()
 
 
+
+# Campos de mudanças 
+
+# Verificar o por que não esta sendo adicionado os dados corretamente ao banco de dados do cadastro de usuarios.
+
+# Preciso adicionar novos parametros para que sejam adicionados os ids para cada usuario e que possa ser pesquisado cada usuario pelo seu ID..
+
+# Mostrar as alterações feitas pelos ID de cada usuario. Exemplo, se um usuario fizer uma alterção em um evento tera um log mostrando as alterações que foram feitas por esse usuario e mostrara o seu ID..
+
+# Fazer um teste parrudo apos adicionar as funcionalidades no programa para verificar se tudo esta funcionando perfeitamente. 
+
