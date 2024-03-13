@@ -50,6 +50,47 @@ def cadastro_eventos():
             print('Erro ao processar os dados da descrição, por favor, insira valores validos.')
     while True:
         try:
+            categoria = input('Informe a categoria do evento: ')
+            if validar_titulo(categoria):
+                dados_evento['categoria'] = categoria
+                break
+            else:
+                print('A categoria de eventos informada e invalida.')
+        except ValueError:
+            print('Os caracteres informados na categoria do evento e invalido, por favor, insira caracteres validos.')
+    while True:
+        try:
+            organizador = input('Informe o organizador do evento: ')
+            if validar_titulo(organizador):
+                dados_evento['organizador'] = organizador
+                break
+            else:
+                print('Os dados do organizador estao incorretos, por favor, informe dados validos.')
+        except ValueError:
+            print('Os dados do organizador contem caracteres invalidos, por favor, insira somente letras e números.')
+    while True:
+        try:
+            inscricao = input('O evento necessita de inscrição?: ')
+            if validar_titulo(inscricao):
+                dados_evento['inscricao'] = inscricao
+                break
+            else:
+                print('Os dados informados estão incorretos.')
+        except ValueError:
+            print('Os dados informados contem caracteres invalidos, por favo, insira dados validos.')
+    # temos que criar uma validação para a entrada de dados custo
+    while True:
+        try:
+            custo = input('Informe o valor da entrada ou ingresso R$: ')
+            if validar_titulo(custo):
+                dados_evento['custo'] = custo
+                break
+            else:
+                print('Os valores informados estão incorretos.')
+        except ValueError:
+            print('Os valores informados contem caracteres invalidos, por favor, insira somente números inteiros ou de ponto flutuante.')
+    while True:
+        try:
             data_evento = input('Informe a data do evento (DD/MM/AAAA): ')
             if validar_data(data_evento):
                 dados_evento['data_evento'] = data_evento
