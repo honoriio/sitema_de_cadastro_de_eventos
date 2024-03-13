@@ -2,16 +2,14 @@
 
 # Area destinada para a inportação dos modulos necessarios
 
-
 from modulos.validacao import validar_email
 from modulos.validacoes_eventos import *
 
-
-class evento:
-    def __init__(self, titulo, descricao, data, hora_evento, local_evento, categoria, organizador, contato_evento, inscricao, custo):
+class Evento:
+    def __init__(self, titulo, descricao, data_evento, hora_evento, local_evento, categoria, organizador, contato_evento, inscricao, custo, rua_evento, bairro_evento, cidade_evento, estado_evento, cep_evento, email_evento):
         self.titulo = titulo
         self.descricao = descricao
-        self.data = data
+        self.data_evento = data_evento
         self.hora_evento = hora_evento
         self.local_evento = local_evento
         self.categoria = categoria
@@ -19,6 +17,12 @@ class evento:
         self.contato_evento = contato_evento
         self.inscricao = inscricao
         self.custo = custo
+        self.rua_evento = rua_evento
+        self.bairro_evento = bairro_evento
+        self.cidade_evento = cidade_evento
+        self.estado_evento = estado_evento
+        self.cep_evento = cep_evento
+        self.email_evento = email_evento
 
 
 def cadastro_eventos():
