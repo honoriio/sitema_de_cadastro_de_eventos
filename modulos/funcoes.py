@@ -5,7 +5,7 @@
 
 from modulos.validacao import *
 
-class pessoa:
+class Pessoa:
     def __init__(self,nome, sobrenome, nascimento, celular, email, sexo, endereco, cep):
         self.nome = nome
         self. nascimento = nascimento
