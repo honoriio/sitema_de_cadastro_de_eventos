@@ -18,7 +18,6 @@ linha()
 if resp == '1':  # Corrigido: comparando com strings '1' e '2'
     from modulos.database.data_base import BancoDeDados
     bd = BancoDeDados()
-    linha()
 elif resp == '2':
     from modulos.funcoes_eventos import *
     from modulos.database.data_base_eventos import BancoDeDadosEventos

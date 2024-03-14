@@ -1,7 +1,10 @@
 
 def linha():
-    print('-' * 82)
+    print('-' * 197)
 
 
 def linha_dupla():
-    print('=' * 82)
+    print('=' * 197)
+
+def linha_tres():
+    print('.' * 197)
