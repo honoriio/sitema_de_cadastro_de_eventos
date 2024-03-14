@@ -1,9 +1,22 @@
 
 
 
-print('O que deseja fazer?')
+
+
+from modulos.interface.elemento import *
+
+
+linha_dupla()
+print('EVENTHUB v-0.1.2'.center(52))
+linha_dupla()
+print('MENU'.center(52))
+linha_dupla()
+
 print('[1]- Cadastrar um novo usuário.')
 print('[2]- Cadastrar um novo evento.')
+print('[3]- Vizualizar usúarios')
+print('[4]- vizualizar eventos')
+linha()
 resp = input('Opção: ')
 
 if resp == '1':  # Corrigido: comparando com strings '1' e '2'
@@ -14,6 +27,12 @@ elif resp == '2':
     from modulos.database.data_base_eventos import BancoDeDadosEventos
     from modulos.funcoes import *
     bd = BancoDeDadosEventos()
+elif resp == '3':
+    from modulos.database.print_data_base_usuarios import PrintBancoDeDadosUsuarios
+    PrintBancoDeDadosUsuarios()
+elif resp == '4':
+    from modulos.database.print_data_base_eventos import PrintBancoDeDadosEventos
+    PrintBancoDeDadosEventos()
     
 
 

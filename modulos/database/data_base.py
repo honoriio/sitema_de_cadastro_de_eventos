@@ -72,9 +72,12 @@ class BancoDeDados:
         else:
             print("CEP não encontrado.")
 
+    
 # Instanciando a classe BancoDeDados e chamando o método processar_cadastro
 bd = BancoDeDados()
 bd.processar_cadastro()
+
+
 
 
 
