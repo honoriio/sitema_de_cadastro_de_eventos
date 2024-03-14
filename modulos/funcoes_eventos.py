@@ -125,7 +125,7 @@ def cadastro_eventos():
         try:
             rua_evento = input('Informe o endereço do evento: ')
             if validar_titulo(rua_evento):
-                dados_evento['endereco_evento'] = rua_evento
+                dados_evento['rua_evento'] = rua_evento
                 break
             else:
                 print('A rua informado e invaldo, por favor, insira um nome de rua valido.')
