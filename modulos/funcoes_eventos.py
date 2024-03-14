@@ -3,6 +3,7 @@
 # Area destinada para a inportação dos modulos necessarios
 
 from modulos.bibliotecas.uuid import gerar_uuid
+from modulos.interface.elemento import linha, linha_dupla
 from modulos.validacao import validar_email
 from modulos.validacoes_eventos import *
 
@@ -35,6 +36,7 @@ def cadastro_eventos():
         while True:
             try:
                 titulo = input('Informe o titulo: ')
+                linha()
                 if validar_titulo(titulo) and titulo.strip() != '':
                     dados_evento['titulo'] = titulo
                     break
@@ -48,6 +50,7 @@ def cadastro_eventos():
         while True:
             try:
                 descricao = input('Informe uma breve descrição para o seu evento: ')
+                linha()
                 if validar_titulo(descricao) and descricao.strip() != '':
                     dados_evento['descricao'] = descricao
                     break
@@ -61,6 +64,7 @@ def cadastro_eventos():
         while True:
             try:
                 categoria = input('Informe a categoria do evento: ')
+                linha()
                 if validar_titulo(categoria):
                     dados_evento['categoria'] = categoria
                     break
@@ -74,6 +78,7 @@ def cadastro_eventos():
         while True:
             try:
                 organizador = input('Informe o organizador do evento: ')
+                linha()
                 if validar_titulo(organizador):
                     dados_evento['organizador'] = organizador
                     break
@@ -87,6 +92,7 @@ def cadastro_eventos():
         while True:
             try:
                 inscricao = input('O evento necessita de inscrição?: ')
+                linha()
                 if validar_titulo(inscricao):
                     dados_evento['inscricao'] = inscricao
                     break
@@ -100,6 +106,7 @@ def cadastro_eventos():
         while True:
             try:
                 custo = input('Informe o valor da entrada ou ingresso R$: ')
+                linha()
                 if validar_valores_monetarios(custo):
                     dados_evento['custo'] = custo
                     break
@@ -113,6 +120,7 @@ def cadastro_eventos():
         while True:
             try:
                 data_evento = input('Informe a data do evento (DD/MM/AAAA): ')
+                linha()
                 if validar_data(data_evento):
                     dados_evento['data_evento'] = data_evento
                     break
@@ -126,6 +134,7 @@ def cadastro_eventos():
         while True:
             try:
                 hora_evento = input('Informe a horario do evento: ')
+                linha()
                 if validar_hora(hora_evento):
                     dados_evento['hora_evento'] = hora_evento
                     break
@@ -140,6 +149,7 @@ def cadastro_eventos():
         while True:
             try:
                 local_evento = input('Informe o local do evento: ')
+                linha()
                 if validar_titulo(local_evento):
                     dados_evento['local_evento'] = local_evento
                     break
@@ -153,6 +163,7 @@ def cadastro_eventos():
         while True:
             try:
                 rua_evento = input('Informe o endereço do evento: ')
+                linha()
                 if validar_titulo(rua_evento):
                     dados_evento['rua_evento'] = rua_evento
                     break
@@ -166,6 +177,7 @@ def cadastro_eventos():
         while True:
             try:
                 bairro_evento = input('Informe o bairro: ')
+                linha()
                 if validar_titulo(bairro_evento):
                     dados_evento['bairro_evento'] = bairro_evento
                     break
@@ -179,6 +191,7 @@ def cadastro_eventos():
         while True:
             try:
                 cidade_evento = input('Informe a cidade: ')
+                linha()
                 if validar_titulo(cidade_evento):
                     dados_evento['cidade_evento'] = cidade_evento
                     break
@@ -192,6 +205,7 @@ def cadastro_eventos():
         while True:
             try:
                 estado_evento = input('Informe o estado: ')
+                linha()
                 if validar_estado(estado_evento):
                     dados_evento['estado_evento'] = estado_evento
                     break
@@ -205,6 +219,7 @@ def cadastro_eventos():
         while True:
             try:
                 cep_evento = input('Informe o cep do evento: ')
+                linha()
                 if validar_cep(cep_evento):
                     dados_evento['cep_evento'] = cep_evento
                     break
@@ -220,6 +235,7 @@ def cadastro_eventos():
         while True:
             try:
                 contato_evento = input('Informe um numero para contato: ')
+                linha()
                 if validar_telefone(contato_evento):
                     dados_evento['contato_evento'] = contato_evento
                     break
@@ -233,6 +249,7 @@ def cadastro_eventos():
         while True:
             try:
                 email_evento = input('Informe seu melhor e-mail: ')
+                linha()
                 if validar_email(email_evento):
                     dados_evento['email_evento'] = email_evento
                     break
@@ -250,6 +267,9 @@ def cadastro_eventos():
                 break
             except ValueError:
                 print('ID de envento não gerado.')
+        linha_dupla()
+        print(f'Cadastro de Evento concluido, ID do evento {id_evento}')
+        linha_dupla()
 
     titulo()
     descricao()

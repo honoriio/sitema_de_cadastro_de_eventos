@@ -4,6 +4,7 @@
 # Area destinada para importação dos moculos necessarios
 
 from modulos.bibliotecas.uuid import gerar_uuid
+from modulos.interface.elemento import linha, linha_dupla
 from modulos.validacao import *
 
 class Pessoa:
@@ -27,6 +28,7 @@ def cadastro():
         while True:
             try:
                 nome = input('Informe o nome: ')
+                linha()
                 if validar_nome(nome) and nome.strip() != '':
                     dados['nome'] = nome
                     break
@@ -41,6 +43,7 @@ def cadastro():
         while True:
             try:
                 nascimento = input('Informe a data de nascimento (DD/MM/AAAA): ')
+                linha()
                 if validar_data(nascimento):
                     dados['data_nascimento'] = nascimento
                     break
@@ -55,6 +58,7 @@ def cadastro():
         while True:
             try:
                 celular = input('Informe um numero para contato: ')
+                linha()
                 if validar_telefone(celular):
                     dados['celular'] = celular
                     break
@@ -82,10 +86,13 @@ def cadastro():
     def sexo():
         while True:
             try:
+                linha_dupla()
                 print('Qual o seu sexo?')
                 print('[1]- Masculino')
                 print('[2]- Feminino')
+                linha_dupla()
                 sexo = leiaint('Opção: ')
+                linha()
                 if sexo == 1:
                     dados['sexo'] = 'Masculino'
                     break
@@ -118,11 +125,13 @@ def cadastro():
         while True:
             try:
                 id_usuario = gerar_uuid()
+                linha_dupla()
                 dados['id_usuario'] = id_usuario
                 break
             except ValueError:
                 print('ID de usuario não gerado.')
         print(f'Cadastro finalizado, ID de usúario gerado: {id_usuario}')
+        linha_dupla()
         return dados
 
     nome()
