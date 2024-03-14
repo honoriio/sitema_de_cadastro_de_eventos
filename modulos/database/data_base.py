@@ -45,7 +45,9 @@ class BancoDeDados:
     # Função para processar o cadastro
     def processar_cadastro(self):
         # Obtém os dados do cadastro
-        cep, dados = cadastro()
+        dados = cadastro()
+
+        cep = dados['cep']
 
         # Consulta o CEP
         cep_info = consulta_cep(cep)
@@ -66,7 +68,7 @@ class BancoDeDados:
             self.desconectar()
 
             # Imprime os dados obtidos com o cep
-            imprimir_informacoes_cep(cep)
+            #imprimir_informacoes_cep(cep)
         else:
             print("CEP não encontrado.")
 

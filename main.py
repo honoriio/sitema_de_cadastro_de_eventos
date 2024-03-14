@@ -9,14 +9,12 @@ resp = input('Opção: ')
 if resp == '1':  # Corrigido: comparando com strings '1' e '2'
     from modulos.database.data_base import BancoDeDados
     bd = BancoDeDados()
-    bd.processar_cadastro()  # Chamar o método processar_cadastro da classe BancoDeDados
 elif resp == '2':
     from modulos.funcoes_eventos import *
     from modulos.database.data_base_eventos import BancoDeDadosEventos
     from modulos.funcoes import *
     bd = BancoDeDadosEventos()
-    bd.processar_cadastro_eventos()
-    cadastro_eventos()  # Supondo que cadastro_eventos é uma função definida em outro lugar
+    
 
 
 
