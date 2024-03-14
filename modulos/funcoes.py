@@ -3,10 +3,11 @@
 
 # Area destinada para importação dos moculos necessarios
 
+from modulos.bibliotecas.uuid import gerar_uuid
 from modulos.validacao import *
 
 class Pessoa:
-    def __init__(self,nome, sobrenome, nascimento, celular, email, sexo, endereco, cep):
+    def __init__(self,nome, nascimento, celular, email, sexo, endereco, cep):
         self.nome = nome
         self. nascimento = nascimento
         self.celular = celular
@@ -90,6 +91,15 @@ def cadastro():
                 print('O CEP informado é inválido. Por favor, insira um CEP válido.')
         except ValueError:
             print('Erro ao validar o CEP, Por favor verifique os dados informados e digite novamente.')
+    while True:
+        try:
+            id_usuario = gerar_uuid()
+            dados['id_usuario'] = id_usuario
+            break
+        except ValueError:
+            print('ID de usuario não gerado.')
+
+    print(f'Cadastro finalizado, ID de usúario gerado: {id_usuario}')
     
     return cep, dados
 

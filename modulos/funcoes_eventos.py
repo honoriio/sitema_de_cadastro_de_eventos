@@ -2,6 +2,7 @@
 
 # Area destinada para a inportação dos modulos necessarios
 
+from modulos.bibliotecas.uuid import gerar_uuid
 from modulos.validacao import validar_email
 from modulos.validacoes_eventos import *
 
@@ -193,11 +194,18 @@ def cadastro_eventos():
                 print('O e-mail informado não é válido.')
         except ValueError:
             print('Erro ao validar e-mail, por favor informe um e-mail válido.')
+    while True:
+        try:
+            id_evento = gerar_uuid()
+            dados_evento['id_evento'] = id_evento
+            break
+        except ValueError:
+            print('ID de envento não gerado.')
+
+    print(f'Cadastro finalizado, ID do evento gerado: {id_evento}')
     return dados_evento
 
 
 # Campos de mudança
-
-# Preciso criar o banco de dados para os eventos, talvez farei igual a entrada do bando de dados do cadastro de usuarios
 
 # Tambem preciso criar a inscrição dos usuarios para o evento, sendo possivel mostrar os usuarios cadastrados no evento, e talvez gerar um ID de participação para cada usuario.

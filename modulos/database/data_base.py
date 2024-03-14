@@ -27,7 +27,8 @@ class BancoDeDados:
                 cep TEXT,
                 localidade TEXT,
                 uf TEXT,
-                complemento TEXT
+                complemento TEXT,
+                id_usuario TEXT
             )
         ''')
         self.conn.commit()
@@ -36,9 +37,9 @@ class BancoDeDados:
     def inserir_dados(self, dados):
         cursor = self.conn.cursor()
         cursor.execute('''
-            INSERT INTO pessoas (nome, data_nascimento, celular, email, sexo, cep, localidade, uf, complemento)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (dados['nome'], dados['data_nascimento'], dados['celular'], dados['email'], dados['sexo'], dados['cep'], dados['localidade'], dados['uf'], dados['complemento']))
+            INSERT INTO pessoas (nome, data_nascimento, celular, email, sexo, cep, localidade, uf, complemento, id_usuario)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (dados['nome'], dados['data_nascimento'], dados['celular'], dados['email'], dados['sexo'], dados['cep'], dados['localidade'], dados['uf'], dados['complemento'], dados['id_usuario']))
         self.conn.commit()
 
     # Função para processar o cadastro

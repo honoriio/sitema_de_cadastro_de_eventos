@@ -33,7 +33,8 @@ class BancoDeDadosEventos:
                 cidade_evento TEXT,
                 estado_evento  TEXT,
                 cep_evento TEXT,
-                email_evento TEXT
+                email_evento TEXT,
+                id_evento TEXT
             )
         ''')
         self.conn.commit()
@@ -42,11 +43,11 @@ class BancoDeDadosEventos:
         cursor = self.conn.cursor()
         cursor.execute('''
             INSERT INTO eventos (titulo, descricao, data, hora_evento, local_evento, categoria, organizador, 
-            contato_evento, inscricao, custo, rua_evento, bairro_evento, cidade_evento, estado_evento, cep_evento, email_evento)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            contato_evento, inscricao, custo, rua_evento, bairro_evento, cidade_evento, estado_evento, cep_evento, email_evento, id_evento)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (dados_evento['titulo'], dados_evento['descricao'], dados_evento['data_evento'], dados_evento['hora_evento'], dados_evento['local_evento'], dados_evento['categoria'], dados_evento['organizador'], 
               dados_evento['contato_evento'], dados_evento['inscricao'], dados_evento['custo'], dados_evento['rua_evento'], dados_evento['bairro_evento'], 
-              dados_evento['cidade_evento'], dados_evento['estado_evento'], dados_evento['cep_evento'], dados_evento['email_evento']))
+              dados_evento['cidade_evento'], dados_evento['estado_evento'], dados_evento['cep_evento'], dados_evento['email_evento'], dados_evento['id_evento']))
         self.conn.commit()
 
         # Função para processar o cadastro
