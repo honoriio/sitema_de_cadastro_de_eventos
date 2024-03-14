@@ -1,6 +1,7 @@
 # Este e um local especifico para a criação de validações para o cadastramento dos eventos.
 
 # Este local e destinado as importações necessarias.
+import charset_normalizer
 import unidecode
 
 # Criamos essa função para a validação do campo titulo ou algum campo que necessite dessa validação em espesifico.
@@ -93,3 +94,16 @@ def validar_telefone(celular):
     return False
 
 
+# Função criada pra verificar e validar valores monetarios inseridos pelo usuario.
+def validar_valores_monetarios(custo):
+    caracteres_permitidos = set("1234567890.,")
+    if all(char in caracteres_permitidos for char in custo):
+        tam_custo = 15
+        tam_custo_evento = len(custo)
+        if tam_custo_evento <= tam_custo:
+            return True
+        else: 
+            print('O valor informado excede o tamanho maximo permitido.')
+    else:
+        print('O valor informado contem caracteres não permitidos, por favor, insira valores validos.')
+    return False

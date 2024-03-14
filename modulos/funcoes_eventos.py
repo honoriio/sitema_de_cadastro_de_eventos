@@ -82,7 +82,7 @@ def cadastro_eventos():
     while True:
         try:
             custo = input('Informe o valor da entrada ou ingresso R$: ')
-            if validar_titulo(custo):
+            if validar_valores_monetarios(custo):
                 dados_evento['custo'] = custo
                 break
             else:
