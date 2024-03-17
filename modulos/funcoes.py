@@ -81,6 +81,27 @@ def cadastro():
             except ValueError:
                 print('Erro ao validar e-mail, por favor informe um e-mail válido.')
         return email
+    
+    # Função criada para a criação e aramazaenamento da senha de login do usuario 
+    def senha():
+        while True:
+        
+            senha1 = input('Digite sua senha: ')
+            senha2 = input('Digite sua senha novamente: ')
+        
+            if senha1 != senha2:
+                print('As senhas informadas são diferentes uma da outra')
+                print('Por favor, digite as senhas novamente')
+                continue  
+        
+            if not validar_senha(senha1):
+               dados['senha'] = senha1
+               continue 
+        
+            return senha  # Se as senhas forem iguais e válidas, retorna a senha
+        
+        # Função senha com erro a atribuição ao banco de dados, preciso resolver isso 
+
 
     # Função criada para a coleta e validação do campo sexo
     def sexo():
@@ -138,6 +159,7 @@ def cadastro():
     nascimento()
     celular()
     email()
+    senha()
     sexo()
     cep()
     gerar_ids()

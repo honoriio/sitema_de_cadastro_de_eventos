@@ -1,8 +1,4 @@
+from modulos.validacao import validar_senha
 
 
 
-
-from modulos.database.print_data_base_usuarios import PrintBancoDeDadosUsuarios
-
-
-PrintBancoDeDadosUsuarios()

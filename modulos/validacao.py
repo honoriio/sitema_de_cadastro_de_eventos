@@ -101,3 +101,25 @@ def validar_telefone(celular):
     else:
         print('O número informada contém caracteres não permitidos. Por favor, insira apenas números, sem barra, aspas ou ponto de separação.')
     return False
+
+
+# Função criada para a validação de senha de login do usuario 
+def validar_senha(senha):
+    caracteres_permitidos = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ^~´áéíóúÁÉÍÓÚ1234567890.@/|\?!#$%*()_-=+[]{}, ")
+    if all(char in caracteres_permitidos for char in senha):
+        tam_min_senha = 8 
+        tam_max_senha = 25
+        tam_senha_usuario = len(senha)
+        if tam_senha_usuario < tam_min_senha:
+            print('A senha informada tem menos de 8 caracteres.')
+            print('Por favor digite uma nova senha.')
+            return False
+        elif tam_senha_usuario > tam_max_senha:
+            print('A senha inserida excede o limite de 25 caracteres por senha.')
+            print('Por favor digite uma senha de 8 a 25 caracteres.')
+            return False
+        elif tam_senha_usuario >= tam_min_senha and tam_senha_usuario <= tam_max_senha:
+            return True
+    else:
+        print('A senha contém caracteres não permitidos.')
+        return False
