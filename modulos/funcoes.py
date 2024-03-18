@@ -98,6 +98,7 @@ def cadastro():
 
             dados['senha'] = senha1  # Atribui a senha ao dicionário de dados
             break
+        
 
     # Função criada para a coleta e validação do campo sexo
     def sexo():
