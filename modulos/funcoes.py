@@ -82,26 +82,22 @@ def cadastro():
                 print('Erro ao validar e-mail, por favor informe um e-mail válido.')
         return email
     
-    # Função criada para a criação e aramazaenamento da senha de login do usuario 
-    def senha():
+    # Função para a coleta e validação da senha do usuário
+    def senha_usuario():
         while True:
-        
             senha1 = input('Digite sua senha: ')
             senha2 = input('Digite sua senha novamente: ')
-        
-            if senha1 != senha2:
-                print('As senhas informadas são diferentes uma da outra')
-                print('Por favor, digite as senhas novamente')
-                continue  
-        
-            if not validar_senha(senha1):
-               dados['senha'] = senha1
-               continue 
-        
-            return senha  # Se as senhas forem iguais e válidas, retorna a senha
-        
-        # Função senha com erro a atribuição ao banco de dados, preciso resolver isso 
 
+            if senha1 != senha2:
+                print('As senhas informadas são diferentes. Por favor, digite novamente.')
+                continue
+
+            if not validar_senha(senha1):
+                print('Senha inválida. Certifique-se de que a senha tenha pelo menos 8 caracteres.')
+                continue
+
+            dados['senha'] = senha1  # Atribui a senha ao dicionário de dados
+            break
 
     # Função criada para a coleta e validação do campo sexo
     def sexo():
@@ -159,7 +155,7 @@ def cadastro():
     nascimento()
     celular()
     email()
-    senha()
+    senha_usuario()
     sexo()
     cep()
     gerar_ids()
