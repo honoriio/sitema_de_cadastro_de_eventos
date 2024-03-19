@@ -1,6 +1,8 @@
 import os
 import sqlite3
 
+from modulos.interface.elemento import linha_tres
+
 class PrintBancoDeDadosEventos:
     @staticmethod
     def printar_dados_eventos(nome_banco):
@@ -14,9 +16,11 @@ class PrintBancoDeDadosEventos:
 
             # Recuperar os dados
             dados = consulta.fetchall()
-
+            cont = 0
             # Imprimir dados
             for linha in dados:
+                cont = cont + 1
+                print(f'Evento de número {cont}')
                 print("""
                        ID do Evento:..........{}
                        Título:................{}
@@ -37,6 +41,7 @@ class PrintBancoDeDadosEventos:
                        E-mail:................{}
                       """.format(
                     linha[17], linha[1], linha[2], linha[3], linha[4], linha[5], linha[6], linha[7], linha[8], linha[9], linha[10], linha[11], linha[12], linha[13], linha[14], linha[15], linha[16]))
+                linha_tres()
 
             # Fechar a conexão com o banco de dados 
             conn.close()
