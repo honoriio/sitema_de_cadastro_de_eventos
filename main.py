@@ -4,12 +4,7 @@ from modulos.interface.elemento import *
 
 
 
-linha_dupla()
-print('EVENTHUB v-0.1.2'.center(82))
-linha_dupla()
-print('MENU'.center(82))
-linha_dupla()
-
+menu()
 print('[1]- Cadastrar um novo usuário.')
 print('[2]- Cadastrar um novo evento.')
 print('[3]- Login')
@@ -34,11 +29,7 @@ elif opc == '3':
     if resultado_login == 1:
         print("Login bem-sucedido!")
         limpar_tela()
-        linha_dupla()
-        print('EVENTHUB v-0.1.2'.center(82))
-        linha_dupla()
-        print('MENU'.center(82))
-        linha_dupla()
+        menu()
 
         print('[1]- Vizualizar eventos cadastrados.')
         print('[2]- Vizualizar eventos inscritos.')
@@ -48,8 +39,11 @@ elif opc == '3':
         linha()
 
         if opc == '1':
+            limpar_tela()
+            menu()
             from modulos.database.print_data_base_eventos import PrintBancoDeDadosEventos
             PrintBancoDeDadosEventos()
+            print('Deseja se cadastrar em um evento?')
         elif opc == '2':
             print('teste')
 
@@ -58,4 +52,5 @@ elif opc == '3':
             time.sleep(2)
             limpar_tela()
             sys.exit()
+
             

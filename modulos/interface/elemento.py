@@ -8,3 +8,11 @@ def linha_dupla():
 
 def linha_tres():
     print('.' * 197)
+
+
+def menu():
+    linha_dupla()
+    print('EVENTHUB v-0.1.2'.center(82))
+    linha_dupla()
+    print('MENU'.center(82))
+    linha_dupla()
