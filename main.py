@@ -43,7 +43,8 @@ elif opc == '3':
             menu()
             from modulos.database.print_data_base_eventos import PrintBancoDeDadosEventos
             PrintBancoDeDadosEventos()
-            print('Deseja se cadastrar em um evento?')
+            print('Deseja se inscrever em um evento?')
+            opc = input('Opção: ')
         elif opc == '2':
             print('teste')
 

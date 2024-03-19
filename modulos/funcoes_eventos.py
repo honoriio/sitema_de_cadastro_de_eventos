@@ -2,10 +2,22 @@
 
 # Area destinada para a inportação dos modulos necessarios
 
+import sqlite3
 from modulos.bibliotecas.uuid import gerar_uuid
 from modulos.interface.elemento import linha, linha_dupla
 from modulos.validacao import validar_email
 from modulos.validacoes_eventos import *
+
+
+# Função para inscrever o usuário em um evento específico
+def inscrever_em_evento(evento_id, nome_usuario):
+    conn = sqlite3.connect('cadastro_eventos.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM eventos WHERE id=?", (evento_id,))
+    evento = cursor.fetchone()
+    if evento:
+        
+        print(f"Usuário '{nome_usuario}' cadastrado com sucesso no evento '{evento[1]}'!")
 
 class Evento:
     def __init__(self, titulo, descricao, data_evento, hora_evento, local_evento, categoria, organizador, contato_evento,
@@ -270,6 +282,8 @@ def cadastro_eventos():
         linha_dupla()
         print(f'Cadastro de Evento concluido, ID do evento {id_evento}')
         linha_dupla()
+
+    
 
     titulo()
     descricao()
