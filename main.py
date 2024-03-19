@@ -28,4 +28,19 @@ elif opc == '3':
     from modulos.bibliotecas.uuid import limpar_tela
     limpar_tela()
     from modulos.funções_login import login
-    login()
+    resultado_login = login()
+    if resultado_login == 1:
+        print("Login bem-sucedido!")
+        limpar_tela()
+        linha_dupla()
+        print('EVENTHUB v-0.1.2'.center(82))
+        linha_dupla()
+        print('MENU'.center(82))
+        linha_dupla()
+
+        print('[1]- Vizualizar eventos cadastrados.')
+        print('[2]- Vizualizar eventos inscritos.')
+        print('[3]- Sair')
+        linha()
+        opc = input('opção: ')
+        linha()

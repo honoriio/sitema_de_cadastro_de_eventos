@@ -5,6 +5,7 @@ from modulos.interface.elemento import linha_dupla
 
 def login():
     cont = 0 
+    login_ativo = 0
     while True:
         linha_dupla()
         print('LOGIN EVENTHUB V-0.1.2'.center(86))
@@ -13,7 +14,7 @@ def login():
         senha = input('Insira sua senha: ')
         senha_armazenada = CredenciaisUsuario.credenciais('cadastro.db', usuario, senha)  # Obtem a senha armazenada
         cont = cont + 1
-        if cont == 2:
+        if cont == 5:
             print('')
             tempo_inicio = time.time()
             for segundos_restantes in range(180, 0, -1):  # Contagem regressiva de 180 a 1 segundo
@@ -26,6 +27,8 @@ def login():
                 time.sleep(1)
                 limpar_tela()
         if senha == senha_armazenada:
+            login_ativo = 1
+            return login_ativo
             break
 
 

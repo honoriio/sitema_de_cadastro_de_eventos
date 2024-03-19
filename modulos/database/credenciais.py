@@ -20,7 +20,7 @@ class CredenciaisUsuario:
                 senha_armazenada = usuario[5]  # Armazena a senha encontrada no banco de dados
 
                 if senha == senha_armazenada:
-                    print("Login bem-sucedido!")
+                    True
                     # Você pode retornar os dados do usuário aqui se desejar
                 else:
                     linha()
