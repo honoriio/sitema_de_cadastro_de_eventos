@@ -1,5 +1,7 @@
-
+import sys
+import time
 from modulos.interface.elemento import *
+
 
 
 linha_dupla()
@@ -44,3 +46,16 @@ elif opc == '3':
         linha()
         opc = input('opção: ')
         linha()
+
+        if opc == '1':
+            from modulos.database.print_data_base_eventos import PrintBancoDeDadosEventos
+            PrintBancoDeDadosEventos()
+        elif opc == '2':
+            print('teste')
+
+        elif opc == '3':
+            print('Encerrando o programa...')
+            time.sleep(2)
+            limpar_tela()
+            sys.exit()
+            
