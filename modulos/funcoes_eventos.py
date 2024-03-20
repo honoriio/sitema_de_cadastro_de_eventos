@@ -103,7 +103,7 @@ def cadastro_eventos():
     def inscricao():
         while True:
             try:
-                inscricao = input('O evento necessita de inscrição?: ')
+                inscricao = input('O evento necessita de inscrição?: ').islower
                 linha()
                 if validar_titulo(inscricao):
                     dados_evento['inscricao'] = inscricao
