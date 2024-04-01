@@ -2,6 +2,7 @@ import time
 from modulos.bibliotecas.uuid import limpar_tela
 from modulos.database.credenciais import CredenciaisUsuario
 from modulos.interface.elemento import linha_dupla
+import getpass
 
 def login():
     cont = 0 
@@ -11,7 +12,7 @@ def login():
         print('LOGIN EVENTHUB V-0.1.2'.center(86))
         linha_dupla()
         usuario = input('Insira seu email: ')
-        senha = input('Insira sua senha: ')
+        senha = getpass.getpass('Insira sua senha: ') # O comando getpass oculta a senha digitada pelo usuario.
         senha_armazenada = CredenciaisUsuario.credenciais('cadastro.db', usuario, senha)  # Obtem a senha armazenada
         cont = cont + 1
         if cont == 5:
@@ -29,7 +30,7 @@ def login():
         if senha == senha_armazenada:
             login_ativo = 1
             return login_ativo
-            break
+            
 
 
 

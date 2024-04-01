@@ -50,10 +50,13 @@ elif opc == '3':
         elif opc == '2':
             from modulos.database.eventos_com_inscricao import PrintEventosInscricao
             PrintEventosInscricao()
+
+            print('[1]- Cadastrar no evento.')
+            print('[2]- Voltar pagina.')
+
+            opc = input('Opção: ')
         elif opc == '4':
             print('Encerrando o programa...')
             time.sleep(2)
             limpar_tela()
             sys.exit()
-
-            
