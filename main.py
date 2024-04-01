@@ -2,6 +2,7 @@ import sys
 import time
 import sqlite3
 
+
 from modulos.interface.elemento import *
 
 
@@ -53,8 +54,11 @@ elif opc == '3':
 
             print('[1]- Cadastrar no evento.')
             print('[2]- Voltar pagina.')
-
             opc = input('Opção: ')
+
+            if opc == 1:
+                from modulos.funcoes_inscricao_evento import inscricao_evento
+                inscricao_evento()
         elif opc == '4':
             print('Encerrando o programa...')
             time.sleep(2)
