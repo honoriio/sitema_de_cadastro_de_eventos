@@ -1,8 +1,6 @@
 import sys
 import time
 
-
-
 from modulos.interface.elemento import *
 
 

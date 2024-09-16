@@ -30,8 +30,3 @@ def login():
         if senha == senha_armazenada:
             login_ativo = 1
             return login_ativo
-            
-
-
-
-

@@ -7,7 +7,7 @@ def cadastrar_usuario():
     bd = BancoDeDados()
 
 def cadastrar_evento():
-    from modulos.funcoes_eventos import menu
+    from modulos.interface.elemento import menu
     from modulos.database.data_base_eventos import BancoDeDadosEventos
     from modulos.funcoes import cadastro
     bd = BancoDeDadosEventos()
@@ -74,4 +74,3 @@ def menu_login2():
         visualizar_eventos_para_inscricao()
     elif opc == '4':
         encerrar_programa()
-
